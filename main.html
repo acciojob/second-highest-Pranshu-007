@@ -9,16 +9,16 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			const uniqueArray = [...new Set(arr)];
-			let n = uniqueArray.length
-			if (uniqueArray.length==0 || uniqueArray.length==1) {
-				return "-Infinity";
-			} else {
-				uniqueArray.sort();
-				return uniqueArray[n-2];
-			}
-		}
+    const uniqueArray = [...new Set(arr)].map(Number);
+
+    // Handle edge cases
+    if (uniqueArray.length === 0 || uniqueArray.length === 1) {
+        return -Infinity;
+    }
+    uniqueArray.sort((a, b) => b - a);
+
+    return uniqueArray[1];
+}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
